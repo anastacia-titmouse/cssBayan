@@ -1,0 +1,53 @@
+.container {
+    padding: 1em;
+    min-height: 100vh;
+}
+
+.details-container {
+    padding: 1em;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.details-container:hover {
+    cursor: pointer;
+}
+
+.details-container:hover .summary {
+    color: black;
+}
+
+.details-container:hover .cross {
+    display: block;
+}
+
+.details[open] > summary {
+    color:black;
+}
+
+.details-mem {
+    display: block;
+    aspect-ratio: 1;
+    object-fit: cover;
+    width: 40%;
+    margin: 0 auto;
+}
+.cross {
+display: none;
+}
+
+.cross > i{
+    color:black;
+    }
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    border-top: 0.02em solid rgb(211, 207, 207);
+    color: blue;
+}
+
+.details:hover + .summary {
+display: block;
+}
