@@ -3,51 +3,87 @@
     min-height: 100vh;
 }
 
-.details-container {
+.tabs {
     padding: 1em;
     margin: 0 auto;
     width: 80%;
 }
 
-.details-container:hover {
-    cursor: pointer;
+.tabs-title {
+    margin-bottom: 1em;
 }
 
-.details-container:hover .summary {
+.tab-label {
+display:flex;
+flex-direction: column;
+border-top: 0.02em solid rgb(211, 207, 207);
+color: blue;
+padding: 1em 0;
+}
+
+.text-container {
+    display:flex;
+    justify-content: space-between;
+}
+
+.tab-content {
+    max-height:0;
+}
+
+.tab-input {
+    display: none;
+}
+
+.tab-input:checked ~ .tab-label > .tab-content {
+    max-height: 100vh;
+    padding-bottom: 1.2em;
+}
+
+.tab-input:checked ~ .tab-label {
     color: black;
 }
 
-.details-container:hover .cross {
-    display: block;
+.tab-input:checked ~ .tab-label .cross i {
+    transform: rotate(135deg);
+    transition: transform 0.5s ease-in-out;
 }
 
-.details[open] > summary {
-    color:black;
-}
-
-.details-mem {
+.tab-mem {
     display: block;
     aspect-ratio: 1;
     object-fit: cover;
     width: 40%;
     margin: 0 auto;
 }
+
 .cross {
 display: none;
 }
 
-.cross > i{
-    color:black;
+@media (hover: hover) {
+    .tabs:hover {
+        cursor: pointer;
     }
 
-.summary {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em;
-    border-top: 0.02em solid rgb(211, 207, 207);
-    color: blue;
-}
+    .tabs:hover .tab-label {
+        color: black;
+    }
 
-.details:hover + .summary {
-display: block;
+    .tabs:hover .cross {
+        display: block;
+    }
+
+    .tab:hover  > .tab-label > .tab-content {
+        display: block;
+        padding: 1.2em;
+    }
+
+    .tab-input:hover ~ .tab-label .cross i {
+        transform: rotate(135deg);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .tab-input:hover ~ .tab-label .tab-mem {
+        box-shadow: 0 0.5 0.5 0.5;
+    }
 }
