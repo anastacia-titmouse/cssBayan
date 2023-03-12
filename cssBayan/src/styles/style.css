@@ -9,12 +9,6 @@
     min-height: 100vh;
 }
 
-.tabs {
-    padding: 1em;
-    margin: 0 auto;
-    width: 60%;
-}
-
 .tabs-title {
     margin-bottom: 1em;
     font-family: 'Montserrat', sans-serif;
@@ -49,6 +43,12 @@ padding: 1em 0;
     transition: all 0.1s ease-out;
 }
 
+.tabs {
+    padding: 1em;
+    margin: 0 auto;
+    width: 60%;
+}
+
 .tab-input {
     display: none;
 }
@@ -70,7 +70,7 @@ padding: 1em 0;
     transition: transform 0.5s ease-in-out;
 }
 
-.tab-input:checked ~ .tab-label {
+.tab-input:checked ~ .tab-label > .text-container .text {
     color: black;
 }
 
@@ -93,8 +93,6 @@ padding: 1em 0;
     will-change: transform;
     transition: all 0.3s ease-in-out;
 }
-
-
 
 @media (hover: hover) {
     .tabs:hover {
@@ -124,5 +122,55 @@ padding: 1em 0;
     .tab-input:hover ~ .tab-label .cross i {
         transform: rotate(135deg);
         transition: transform 0.5s ease-in-out;
+    }
+}
+
+@media screen and (min-width:280px) and (max-width: 819px){
+    .text-container {
+        gap: 0.5em;
+        background-color: green;
+    }
+    .cross {
+        max-height: 10%;
+        opacity: 1;
+        will-change: transform;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .tabs-title {
+        margin-bottom: 0.5em;
+        font-size: 1.2rem;
+    }
+
+    .text {
+        font-size: 0.8rem;
+    }
+
+    .tabs {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:820px) and (max-width: 1024px){
+    .text-container {
+        gap: 0.5em;
+        background-color: red;
+    }
+    .tabs {
+        margin: 0 auto;
+        width: 80%;
+    }
+    .tabs-title {
+        margin-bottom: 0.5em;
+        font-size: 1.5rem;
+    }
+    .text {
+        font-size: 1rem;
+    }
+    .cross {
+        max-height: 10%;
+        opacity: 1;
+        will-change: transform;
+        transition: all 0.3s ease-in-out;
     }
 }
