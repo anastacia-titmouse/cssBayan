@@ -127,7 +127,6 @@ padding: 1em 0;
 @media screen and (min-width:280px) and (max-width: 819px){
     .text-container {
         gap: 0.5em;
-        background-color: green;
     }
     .cross {
         max-height: 10%;
@@ -153,7 +152,6 @@ padding: 1em 0;
 @media screen and (min-width:820px) and (max-width: 1024px){
     .text-container {
         gap: 0.5em;
-        background-color: red;
     }
     .tabs {
         margin: 0 auto;
