@@ -1,7 +1,6 @@
 @font-face{
     font-family: 'Montserrat';
-    src: local("../../assets/fonts/Montserrat-SemiBold.ttf"),
-    url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+    src: url("../../assets/fonts/Montserrat-SemiBold.ttf");
 }
 
 .container {
