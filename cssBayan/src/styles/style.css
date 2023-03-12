@@ -1,5 +1,12 @@
+@font-face{
+    font-family: 'Montserrat';
+    src: local("../../assets/fonts/Montserrat-SemiBold.ttf"),
+    url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+}
+
 .container {
     padding: 1em;
+    min-height: 100vh;
 }
 
 .tabs {
@@ -10,13 +17,15 @@
 
 .tabs-title {
     margin-bottom: 1em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 .tab-label {
 display:flex;
 flex-direction: column;
 border-top: 0.02em solid rgb(211, 207, 207);
-color: blue;
 padding: 1em 0;
 }
 
@@ -25,12 +34,19 @@ padding: 1em 0;
     justify-content: space-between;
 }
 
+.text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: blue;
+    transition: all 0.3s ease-out;
+}
+
 .tab-content {
     max-height:0;
     opacity: 0;
-    padding: 1em;
     will-change: transform;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.1s ease-out;
 }
 
 .tab-input {
@@ -40,7 +56,18 @@ padding: 1em 0;
 .tab-input:checked ~ .tab-label > .tab-content {
     max-height: 100vh;
     opacity: 1;
+    padding: 1em;
+}
 
+.tab-input:active ~ .tab-label > .tab-content {
+    filter: opacity(70%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.tab-input:active ~ .tab-label > .text-container .text {
+    color: blue;
+    filter: opacity(70%);
+    transition: transform 0.5s ease-in-out;
 }
 
 .tab-input:checked ~ .tab-label {
@@ -61,8 +88,13 @@ padding: 1em 0;
 }
 
 .cross {
-display: none;
+    max-height:0;
+    opacity: 0;
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
 }
+
+
 
 @media (hover: hover) {
     .tabs:hover {
@@ -70,16 +102,23 @@ display: none;
     }
 
     .tabs:hover .tab-label {
+        cursor: pointer;
+    }
+
+    .tabs:hover .text {
         color: black;
     }
 
     .tabs:hover .cross {
-        display: block;
+        max-height:10%;
+        opacity: 1;
     }
 
     .tab:hover  > .tab-label > .tab-content {
         max-height: 100vh;
         opacity: 1;
+        padding: 1em;
+        transition: all 0.5s ease-out;
     }
 
     .tab-input:hover ~ .tab-label .cross i {
