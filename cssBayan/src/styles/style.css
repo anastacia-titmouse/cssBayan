@@ -1,0 +1,173 @@
+@font-face{
+    font-family: 'Montserrat';
+    src: url("../assets/fonts/Montserrat-SemiBold.ttf");
+}
+
+.container {
+    padding: 1em;
+    min-height: 100vh;
+}
+
+.tabs-title {
+    margin-bottom: 1em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.tab-label {
+display:flex;
+flex-direction: column;
+border-top: 0.02em solid rgb(211, 207, 207);
+padding: 1em 0;
+}
+
+.text-container {
+    display:flex;
+    justify-content: space-between;
+}
+
+.text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: blue;
+    transition: all 0.3s ease-out;
+}
+
+.tab-content {
+    max-height:0;
+    opacity: 0;
+    will-change: transform;
+    transition: all 0.1s ease-out;
+}
+
+.tabs {
+    padding: 1em;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.tab-input {
+    display: none;
+}
+
+.tab-input:checked ~ .tab-label > .tab-content {
+    max-height: 100vh;
+    opacity: 1;
+    padding: 1em;
+}
+
+.tab-input:active ~ .tab-label > .tab-content {
+    filter: opacity(70%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.tab-input:active ~ .tab-label > .text-container .text {
+    color: blue;
+    filter: opacity(70%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.tab-input:checked ~ .tab-label > .text-container .text {
+    color: black;
+}
+
+.tab-input:checked ~ .tab-label .cross i {
+    transform: rotate(135deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+.tab-mem {
+    display: block;
+    aspect-ratio: 1;
+    object-fit: cover;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.cross {
+    max-height:0;
+    opacity: 0;
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (hover: hover) {
+    .tabs:hover {
+        cursor: pointer;
+    }
+
+    .tabs:hover .tab-label {
+        cursor: pointer;
+    }
+
+    .tabs:hover .text {
+        color: black;
+    }
+
+    .tabs:hover .cross {
+        max-height:10%;
+        opacity: 1;
+    }
+
+    .tab:hover  > .tab-label > .tab-content {
+        max-height: 100vh;
+        opacity: 1;
+        padding: 1em;
+        transition: all 0.5s ease-out;
+    }
+
+    .tab-input:hover ~ .tab-label .cross i {
+        transform: rotate(135deg);
+        transition: transform 0.5s ease-in-out;
+    }
+}
+
+@media screen and (min-width:280px) and (max-width: 819px){
+    .text-container {
+        gap: 0.5em;
+    }
+    .cross {
+        max-height: 10%;
+        opacity: 1;
+        will-change: transform;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .tabs-title {
+        margin-bottom: 0.5em;
+        font-size: 1.2rem;
+    }
+
+    .text {
+        font-size: 0.8rem;
+    }
+
+    .tabs {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:820px) and (max-width: 1024px){
+    .text-container {
+        gap: 0.5em;
+    }
+    .tabs {
+        margin: 0 auto;
+        width: 80%;
+    }
+    .tabs-title {
+        margin-bottom: 0.5em;
+        font-size: 1.5rem;
+    }
+    .text {
+        font-size: 1rem;
+    }
+    .cross {
+        max-height: 10%;
+        opacity: 1;
+        will-change: transform;
+        transition: all 0.3s ease-in-out;
+    }
+}
